@@ -7,14 +7,21 @@ AFRAME.registerComponent('dynamic-room', {
     var params = this.getUrlParams();
 
     if (!params.room) {
+      
+      var room = "";
+      var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+      for (var i = 0; i < 8; i++)
+      room += possible.charAt(Math.floor(Math.random() * possible.length))
+      
       var url = window.location.href;    
       if (url.indexOf('?') > -1){
-       url += '&room=1'
+       url += '&room=' + room
       }else{
-       url += '?room=1'
+       url += '?room=' + room
       }
       window.location.href = url;
-     }
+    }
 
     var isMultiuser = params.hasOwnProperty('room');
     var webrtc = params.hasOwnProperty('webrtc');
