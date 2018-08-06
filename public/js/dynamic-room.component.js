@@ -7,8 +7,14 @@ AFRAME.registerComponent('dynamic-room', {
     var params = this.getUrlParams();
 
     if (!params.room) {
-      window.alert('Please add a room name in the URL, eg. ?room=myroom');
-    }
+      var url = window.location.href;    
+      if (url.indexOf('?') > -1){
+       url += '&room=1'
+      }else{
+       url += '?room=1'
+      }
+      window.location.href = url;
+     }
 
     var isMultiuser = params.hasOwnProperty('room');
     var webrtc = params.hasOwnProperty('webrtc');
