@@ -25,7 +25,7 @@ AFRAME.registerComponent('dynamic-room', {
 
     var isMultiuser = params.hasOwnProperty('room');
     var webrtc = params.hasOwnProperty('webrtc');
-    var adapter = webrtc ? 'easyrtc' : 'wseasyrtc';
+    var adapter = webrtc ?  'easyrtc' : 'wseasyrtc';
     var voice = params.hasOwnProperty('voice');
     
     var networkedComp = {
